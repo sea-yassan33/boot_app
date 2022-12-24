@@ -1,1 +1,97 @@
-test
+<%# 基本的なフォームの使用例 %>
+<form class="form">
+  <div class="mb-3">
+    <label class="form-label" for="email">メールアドレス</label>
+    <input type="email" class="form-control" id="email" placeholder="メールアドレスを入力">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="password">パスワード</label>
+    <input type="password" class="form-control" id="password" placeholder="パスワードを入力">
+  </div>
+</form>
+
+<hr>
+<%# form_withを使用したフォーム %>
+<div class="form">
+  <div class="container">
+    <div class="h2 bg-secondary text-white d-block py-2">Sign up</div>
+    <div class="card-header py-3">Sign up</div>
+    <%= form_with local: true do |f| %>
+
+      <div class="mb-3">
+        <%= f.label :nickname ,class: "form-label" %> <em>(6 characters maximum)</em><br />
+        <%= f.text_field :nickname, autofocus: true, maxlength: "6" ,class: "form-control"%>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :email,class: "form-label" %><br />
+        <%= f.email_field :email ,class: "form-control"%>
+      </div>
+
+      <div class="mb-3">
+        <%= f.submit "Sign up",class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<hr>
+<%# コンパクトなフォーム作成 %>
+<form class="form">
+  <div class="row g-1">
+    <div class="mb-3 col-md-6">
+      <label class="form-label" for="inputEmail">メールアドレス</label>
+      <input type="email" class="form-control" placeholder="メールアドレスを入力">
+    </div>
+    <div class="mb-3 col-md-4">
+      <label class="form-label" for="inputPassword">パスワード</label>
+      <input type="email" class="form-control" placeholder="パスワードを入力">
+    </div>
+  </div>
+  <div class="row g-1">
+    <div class="mb-3 col-md-4">
+      <label class="form-label" for="inputState">国</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="mb-3 col-md-2">
+      <label class="form-label" for="inputZip">郵便番号</label>
+      <input type="text" class="form-control" placeholder="郵便番号を入力">
+    </div>
+    <div class="mb-3 col-md-3">
+      <label class="form-label" for="inputCity">都道府県</label>
+      <input type="email" class="form-control" placeholder="都道府県を入力">
+    </div>
+  </div>
+</form>
+
+<hr>
+<%# 自動サイズ調整のカラム %>
+<form class="form">
+  <div class="row g-2 align-items-center">
+    <div class="col-auto">
+      <label class="form]{-label visually-hidden">氏名</label>
+      <input type="text" class="form-control mb-2" placeholder="氏名を入力">
+    </div>
+    <div class="col-auto">
+      <label class="form-label visually-hidden" >ユーザーネーム</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control" placeholder="ユーザーネームを入力">
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox">
+        <label class="form-check-label" for="check">チェックする</label>
+      </div>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2">送信</button>
+    </div>
+  </div>
+</form>
