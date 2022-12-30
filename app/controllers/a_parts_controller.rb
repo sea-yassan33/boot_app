@@ -1,0 +1,2 @@
+class APartsController < ApplicationController
+end

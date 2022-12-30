@@ -1,0 +1,2 @@
+module APartsHelper
+end
